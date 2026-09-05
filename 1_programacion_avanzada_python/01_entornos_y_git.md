@@ -1,16 +1,12 @@
 # Sesión 8 sep 2026 — Entornos virtuales Python y control de versiones (Git/GitHub)
 
-**Materiales de aula (teoría + ejercicios + demos):**  
-[`sesiones/2026-09-08/`](../sesiones/2026-09-08/)
-
-| Bloque | Fichero |
+| Recurso | Fichero |
 | --- | --- |
-| Teoría 30′ | [`sesiones/2026-09-08/teoria.md`](../sesiones/2026-09-08/teoria.md) |
-| Ejercicios 30′ | [`sesiones/2026-09-08/ejercicios.md`](../sesiones/2026-09-08/ejercicios.md) |
-| Guía docente minutada | [`sesiones/2026-09-08_presentacion_venv_git.md`](../sesiones/2026-09-08_presentacion_venv_git.md) |
-| Ejercicio E0 (alternativo / checklist) | [`ejercicios/E0_entornos_git.md`](ejercicios/E0_entornos_git.md) |
+| Ejercicio / checklist | [`ejercicios/E0_entornos_git.md`](ejercicios/E0_entornos_git.md) |
+| Chequeo de entorno | [`ejemplos/check_entorno.py`](ejemplos/check_entorno.py) |
+| Plantilla `.gitignore` | [`ejemplos/gitignore_dsia.txt`](ejemplos/gitignore_dsia.txt) |
 
-Este documento es la **referencia ampliada** de la sesión: conceptos, comandos, ejemplos y resolución de problemas.
+Este documento es la **referencia de la sesión**: conceptos, comandos, ejemplos y resolución de problemas.
 
 ---
 
@@ -113,13 +109,13 @@ En DSIA usamos sobre todo el estilo A en el repo del curso; en tu Proyecto III p
 ### 2.7 Comprobación automática
 
 ```bash
-python sesiones/2026-09-08/ejemplos/check_entorno.py
+python 1_programacion_avanzada_python/ejemplos/check_entorno.py
 ```
 
 Debe imprimir `ENTORNO OK`. Opciones:
 
 ```bash
-python sesiones/2026-09-08/ejemplos/check_entorno.py --strict   # exige estar en .venv
+python 1_programacion_avanzada_python/ejemplos/check_entorno.py --strict   # exige estar en .venv
 ```
 
 ### 2.8 Problemas frecuentes (venv)
@@ -248,7 +244,7 @@ __pycache__/
 .vscode/
 ```
 
-Plantilla lista: [`sesiones/2026-09-08/ejemplos/gitignore_dsia.txt`](../sesiones/2026-09-08/ejemplos/gitignore_dsia.txt)
+Plantilla lista: [`ejemplos/gitignore_dsia.txt`](ejemplos/gitignore_dsia.txt)
 
 ### 3.7 Qué NUNCA sube a GitHub
 
@@ -294,11 +290,11 @@ git restore --staged fichero.py   # saca del staging
 cd dsia-26-27
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python sesiones/2026-09-08/ejemplos/check_entorno.py --strict
+python 1_programacion_avanzada_python/ejemplos/check_entorno.py --strict
 
 # 1) repo personal (ya clonado)
 cd ~/repos/dsia-26-27-apellido-nombre
-cp /ruta/al/curso/sesiones/2026-09-08/ejemplos/gitignore_dsia.txt .gitignore
+cp 1_programacion_avanzada_python/ejemplos/gitignore_dsia.txt .gitignore
 printf '# DSIA — Apellido, Nombre\n\nMáster ...\n' > README.md
 git checkout -b practica/sesion-01
 printf '## Sesión 1\n\n- venv\n- git\n- no subir .env\n' > sesion01.md
@@ -333,4 +329,4 @@ git push -u origin practica/sesion-01
 
 1. Mantén el venv listo.  
 2. Abre `1_programacion_avanzada_python/Datos/ventas.csv`.  
-3. Ojea `proyectos/proyecto_i/` y `sesiones/2026-09-15/teoria.md`.
+3. Ojea `proyectos/proyecto_i/` y `02_pandas_procesamiento.ipynb`.

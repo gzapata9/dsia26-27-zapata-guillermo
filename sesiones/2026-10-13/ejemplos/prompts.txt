@@ -1,5 +1,0 @@
-Resume SOLID en tres viñetas
-Qué es un data pipeline
-Diferencia entre unit test e integration test
-Para qué sirve un healthcheck
-Buenas prácticas con secretos en APIs

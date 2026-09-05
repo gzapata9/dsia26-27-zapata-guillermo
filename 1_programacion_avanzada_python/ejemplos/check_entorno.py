@@ -41,7 +41,7 @@ def main() -> int:
         print("Ejecuta (con venv activo): pip install -r requirements.txt")
         return 1
 
-    root = Path(__file__).resolve().parents[3]
+    root = Path(__file__).resolve().parents[2]
     req = root / "requirements.txt"
     if not req.exists():
         print("FALLO: no encuentro requirements.txt en", root)

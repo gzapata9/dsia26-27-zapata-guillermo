@@ -20,3 +20,6 @@ build/
 node_modules/
 .serverless/
 *.log
+
+# Notas y guías privadas del profesor (no publicar)
+sesiones/

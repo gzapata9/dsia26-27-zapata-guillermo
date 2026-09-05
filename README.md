@@ -62,23 +62,23 @@ Al finalizar, el alumnado será capaz de:
 
 ## Formato de clase
 
-En las sesiones lectivas (15 sep → 17 nov): **30 min exposición + 30 min ejercicios** + ~45 min de proyecto/presentaciones. Guías detalladas en [`sesiones/`](sesiones/).
+En las sesiones lectivas: **30 min exposición + 30 min ejercicios** + ~45 min de proyecto/presentaciones. El material público está en las carpetas de cada tema (`1_…` … `5_…`) y en `proyectos/`.
 
 ## Calendario de sesiones (2026)
 
-| Fecha | Contenido | Guía |
+| Fecha | Contenido | Material público |
 | --- | --- | --- |
-| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | [`sesiones/2026-09-08/`](sesiones/2026-09-08/) |
-| **15 sep** | Pandas + ejercicios + presentación Proyecto I | [`sesiones/2026-09-15/`](sesiones/2026-09-15/) |
-| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | [`sesiones/2026-09-22/`](sesiones/2026-09-22/) |
-| **29 sep** | pytest + ejercicios | [`sesiones/2026-09-29/`](sesiones/2026-09-29/) |
-| **6 oct** | Data flows + proyecto | [`sesiones/2026-10-06/`](sesiones/2026-10-06/) |
-| **13 oct** | APIs de IA + proyecto | [`sesiones/2026-10-13/`](sesiones/2026-10-13/) |
-| **20 oct** | E2E I + presentación Trabajo Final | [`sesiones/2026-10-20/`](sesiones/2026-10-20/) |
-| **27 oct** | E2E II: robustez y logging | [`sesiones/2026-10-27/`](sesiones/2026-10-27/) |
-| **3 nov** | Despliegue a producción | [`sesiones/2026-11-03/`](sesiones/2026-11-03/) |
-| **10 nov** | Claude Code / Gemini CLI / Cursor | [`sesiones/2026-11-10/`](sesiones/2026-11-10/) |
-| **17 nov** | Review + RC con IA | [`sesiones/2026-11-17/`](sesiones/2026-11-17/) |
+| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | `1_programacion_avanzada_python/01_entornos_y_git.md` |
+| **15 sep** | Pandas + ejercicios + presentación Proyecto I | `1_programacion_avanzada_python/02_pandas_procesamiento.ipynb` |
+| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | `1_programacion_avanzada_python/03_arquitectura_patrones.md` |
+| **29 sep** | pytest + ejercicios | `2_pruebas_y_despliegue/` |
+| **6 oct** | Data flows + proyecto | `3_automatizacion_e_ia/` |
+| **13 oct** | APIs de IA + proyecto | `3_automatizacion_e_ia/` |
+| **20 oct** | E2E I + presentación Trabajo Final | `5_desarrollo_end_to_end/` · `proyectos/proyecto_iii/` |
+| **27 oct** | E2E II: robustez y logging | `5_desarrollo_end_to_end/` |
+| **3 nov** | Despliegue a producción | `5_desarrollo_end_to_end/` |
+| **10 nov** | Claude Code / Gemini CLI / Cursor | `4_entornos_ia_generativa/` |
+| **17 nov** | Review + RC con IA | `4_entornos_ia_generativa/` |
 | **24 nov** | Trabajo en el proyecto final | — |
 | **1 dic** | Presentación Trabajo Final (1/2) | — |
 | **8 dic** | Presentación Trabajo Final (2/2) | — |
