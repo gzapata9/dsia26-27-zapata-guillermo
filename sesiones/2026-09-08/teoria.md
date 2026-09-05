@@ -1,116 +1,196 @@
 # Teoría (30 min) — 8 sep 2026  
 ## Presentación breve + entornos virtuales + Git/GitHub
 
-**Objetivo de la teoría:** salir sabiendo crear un entorno reproducible y versionar código con Git.
+**Referencia ampliada:** [`../../1_programacion_avanzada_python/01_entornos_y_git.md`](../../1_programacion_avanzada_python/01_entornos_y_git.md)  
+**Ejemplos:** [`ejemplos/`](ejemplos/) · **Ejercicios:** [`ejercicios.md`](ejercicios.md)
+
+**Objetivo:** salir sabiendo crear un entorno reproducible y versionar código con un flujo Git profesional básico.
 
 ---
 
 ## 1. Introducción (5 min)
 
-En DSIA no entregamos “un script que me funciona”. Entregamos **soluciones reproducibles**:
+### 1.1 El problema que resolvemos hoy
 
-- mismo Python / mismas librerías → mismo comportamiento;
-- historial en Git → se puede revisar, revertir y colaborar;
-- secretos fuera del código → `.env` nunca va al remoto.
+| Situación típica | Consecuencia |
+| --- | --- |
+| “Instalé pandas en el Python del sistema” | Rompes otros proyectos |
+| “Te paso el zip del código” | Sin historial, sin revisión, sin CI |
+| “La API key está en el notebook” | Fuga de secretos en GitHub |
 
-Hoy montamos la base de las 13 semanas restantes.
+En DSIA entregamos **soluciones reproducibles**:
+
+1. mismo intérprete / dependencias → mismo comportamiento;
+2. historial en Git → revisar, revertir, colaborar;
+3. secretos fuera del código → `.env` local, nunca en el remoto.
+
+### 1.2 Mapa de la sesión de teoría
+
+```text
+5'  intro + por qué
+10' venv (conceptos + demo)
+12' Git/GitHub (modelo + demo)
+3'  checklist y puente a ejercicios
+```
 
 ---
 
-## 2. Conceptos
+## 2. Conceptos — entornos virtuales (10 min)
 
-### 2.1 Entorno virtual (`venv`)
+### 2.1 Definiciones
 
 | Concepto | Significado |
 | --- | --- |
-| Intérprete global | Python del sistema / instalado para todo el SO |
-| Entorno virtual | Copia aislada de Python + `site-packages` del proyecto |
-| `requirements.txt` | Lista de dependencias para recrear el entorno |
-| Activar | Hace que `python` y `pip` apunten al `.venv` |
+| Intérprete global | Python del SO / instalación general |
+| Entorno virtual (`.venv`) | Aislamiento: Python + `site-packages` del proyecto |
+| Activar | `python` y `pip` apuntan al `.venv` |
+| `requirements.txt` | Receta para recrear dependencias |
+| `sys.executable` | Ruta real del intérprete en uso |
 
-**Por qué importa:** dos proyectos pueden necesitar `pandas` 2.0 y 2.2; sin venv hay conflictos.
-
-### 2.2 Git — modelo mental
+### 2.2 ¿Qué hay dentro de un `.venv`?
 
 ```text
-  working tree          staging area           historial local          remoto
- (archivos editados) → (git add) → (git commit) → (git push) → GitHub
+.venv/
+  bin/  (Scripts/ en Windows)  → python, pip, activate
+  lib/python3.x/site-packages/ → pandas, pytest, …
+  pyvenv.cfg                   → metadatos del entorno
 ```
 
-| Término | Idea |
-| --- | --- |
-| `commit` | Foto del proyecto con mensaje |
-| `branch` | Línea de trabajo paralela |
-| `main` | Rama principal de integración |
-| `PR` | Propuesta de integrar una rama en otra |
-| `.gitignore` | Qué no debe versionarse (`.venv/`, `.env`, …) |
+**Importante:** `.venv/` se **regenera**; no se versiona.
 
-### 2.3 Buenas prácticas (examen + proyectos)
+### 2.3 Ciclo de vida
 
-1. Commits pequeños, mensaje en imperativo: `Add README`, `Fix validator`.
-2. Nunca subir `.venv/`, `.env`, claves API, `__pycache__/`.
-3. Trabajar en ramas (`practica/…`, `feature/…`).
-4. El README explica cómo instalar y ejecutar en < 5 pasos.
+```text
+crear → activar → instalar → trabajar → deactivate
+              ↘ (si se rompe) borrar .venv y recrear
+```
 
----
-
-## 3. Código y ejemplos (live)
-
-### 3.1 Crear e instalar el entorno
+### 2.4 Demo en vivo (comandos)
 
 ```bash
 cd dsia-26-27
-python3 --version                 # conviene 3.11+
+python3 --version
 python3 -m venv .venv
-source .venv/bin/activate         # Windows: .venv\Scripts\activate
+source .venv/bin/activate              # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+which python                           # debe contener .venv
+python -c "import sys; print(sys.executable)"
+python -c "import pandas, pytest; print(pandas.__version__, pytest.__version__)"
+python sesiones/2026-09-08/ejemplos/check_entorno.py --strict
 ```
 
-Comprobación:
+**Preguntas al aula**
 
-```bash
-which python                      # debe contener .venv
-python -c "import pandas, pytest; print(pandas.__version__)"
-```
+1. Si no activáis el venv, ¿dónde se instalan los paquetes?
+2. ¿Por qué el IDE puede “no ver” pandas aunque en la terminal sí?
 
-Desactivar / reactivar:
+### 2.5 Anti-patrones
 
-```bash
-deactivate
-source .venv/bin/activate
-```
-
-### 3.2 Primer flujo Git
-
-```bash
-git status
-git checkout -b practica/sesion-01
-printf '# Notas DSIA\n\n- venv\n- git\n' > NOTAS.md
-git add NOTAS.md
-git commit -m "Add session notes scaffold"
-git push -u origin practica/sesion-01
-```
-
-### 3.3 Ejemplo de `.gitignore` mínimo
-
-```gitignore
-.venv/
-.env
-__pycache__/
-.pytest_cache/
-.DS_Store
-```
-
-Script de auto-chequeo: `ejemplos/check_entorno.py`.
+- Instalar con `sudo pip` en el sistema.
+- Subir `.venv` a GitHub “para que sea más fácil”.
+- Mezclar conda base + pip global + venv sin criterio.
+- Tener tres Pythons y no saber cuál usa el IDE.
 
 ---
 
-## 4. Resumen (checklist)
+## 3. Conceptos — Git y GitHub (12 min)
 
-- [ ] Sé explicar qué problema resuelve un venv  
-- [ ] Sé instalar desde `requirements.txt`  
-- [ ] Sé crear rama, commit y push  
+### 3.1 Tres zonas + remoto
+
+```text
+ working tree     staging area      commits (.git)       remoto (origin)
+  (editas)   →   (git add)   →   (git commit)   →   (git push / PR)
+```
+
+### 3.2 Glosario operativo
+
+| Término | Idea en una frase |
+| --- | --- |
+| `commit` | Foto del proyecto con mensaje |
+| `branch` | Línea de trabajo paralela |
+| `main` | Rama estable de integración |
+| `origin` | Nombre habitual del remoto GitHub |
+| `PR` | Pedir merge con revisión y conversación |
+| `.gitignore` | Qué Git debe fingir que no existe |
+| `clone` | Copiar repo remoto → disco local |
+
+### 3.3 Flujo que usaremos todo el semestre
+
+```text
+main ──► branch practica/… ──► commits ──► push ──► Pull Request ──► main
+```
+
+### 3.4 Demo en vivo
+
+```bash
+git status
+git switch -c practica/sesion-01     # equivalente moderno a checkout -b
+printf '# Notas DSIA\n\n- venv\n- git\n' > NOTAS.md
+git add NOTAS.md
+git status
+git diff --cached
+git commit -m "Add session notes scaffold"
+git log --oneline -3
+# git push -u origin practica/sesion-01
+```
+
+En GitHub (pantalla): crear repo → abrir PR → mirar el diff → merge.
+
+### 3.5 Commits: calidad mínima
+
+| Bien | Mal |
+| --- | --- |
+| `Add README with install steps` | `update` |
+| `Ignore venv and env files` | `wip` |
+| `Fix broken activate instructions` | `asdf` |
+
+Regla: **un propósito claro por commit** cuando sea razonable.
+
+### 3.6 Secretos y `.gitignore`
+
+Nunca versionar:
+
+- `.venv/`
+- `.env` / API keys
+- `__pycache__/`, `.pytest_cache/`
+
+Plantilla: `ejemplos/gitignore_dsia.txt`.
+
+Si un secreto se sube: **rotar la clave de inmediato**.
+
+### 3.7 Diagrama SSH vs HTTPS (1 min)
+
+```text
+HTTPS: https://github.com/user/repo.git   (+ login / token)
+SSH:   git@github.com:user/repo.git       (+ clave SSH)
+```
+
+Ambos valen; lo importante es que `git push` funcione de forma sostenible.
+
+---
+
+## 4. Código de apoyo en `ejemplos/`
+
+| Fichero | Para qué |
+| --- | --- |
+| `check_entorno.py` | Verifica Python, venv, imports, `requirements.txt` |
+| `gitignore_dsia.txt` | Plantilla de ignore para repos del alumnado |
+| `demo_flujo.sh` | Script guiado (macOS/Linux) del flujo venv+git local |
+
+```bash
+python sesiones/2026-09-08/ejemplos/check_entorno.py --strict
+bash sesiones/2026-09-08/ejemplos/demo_flujo.sh --help
+```
+
+---
+
+## 5. Resumen (3 min) — checklist
+
+- [ ] Explico para qué sirve un venv  
+- [ ] Activo `.venv` e instalo desde `requirements.txt`  
+- [ ] Distingo working tree / staging / commit / remoto  
+- [ ] Creo rama, commit con buen mensaje y (idealmente) PR  
 - [ ] Sé qué no debe entrar en Git  
 
-→ Pasa a `ejercicios.md` (30 min) para fijar la teoría.
+→ Continúa en [`ejercicios.md`](ejercicios.md) (30 min) para **repasar esta teoría**.

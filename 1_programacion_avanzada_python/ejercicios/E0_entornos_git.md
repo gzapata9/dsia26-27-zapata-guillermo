@@ -1,56 +1,23 @@
-# E0 — Entornos virtuales y Git/GitHub (30 min)
+# E0 — Entornos virtuales y Git/GitHub
 
-**Sesión:** 8 sep 2026 · Guía: `../../sesiones/2026-09-08_presentacion_venv_git.md`
+**Sesión:** 8 sep 2026  
 
-## Parte 1 — Entorno virtual (8 min)
+Usa preferentemente los materiales de aula (más completos):
 
-Desde la carpeta del curso (o la que uses como base):
+- Teoría: [`sesiones/2026-09-08/teoria.md`](../../sesiones/2026-09-08/teoria.md)
+- Ejercicios 30′: [`sesiones/2026-09-08/ejercicios.md`](../../sesiones/2026-09-08/ejercicios.md)
+- Referencia: [`../01_entornos_y_git.md`](../01_entornos_y_git.md)
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python -c "import pandas, pytest; print('ok')"
-```
+Este fichero es un **checklist compacto** equivalente.
 
-**Checkpoint:** el comando imprime `ok` y `which python` / `where python` apunta a `.venv`.
+## Checklist rápido
 
-## Parte 2 — Repo personal (8 min)
-
-1. En GitHub, crea un repositorio **privado o público** llamado:
-   `dsia-26-27-apellido-nombre`
-2. Añade un `README.md` con:
-   - Nombre y máster
-   - Objetivos personales del curso (3 bullets)
-   - Enlace al repo del curso (cuando exista)
-3. Clónalo en local y ábrelo en el IDE.
-
-## Parte 3 — Primera rama y commit (8 min)
-
-```bash
-git checkout -b practica/sesion-01
-```
-
-Crea `sesion01.md` con 5–8 líneas: qué es DSIA, qué es un venv, y un comando Git que hayas usado hoy.
-
-```bash
-git add sesion01.md README.md
-git commit -m "Add session 01 notes and personal README"
-git push -u origin practica/sesion-01
-```
-
-## Parte 4 — Pull Request (6 min)
-
-1. Abre un PR de `practica/sesion-01` → `main`.
-2. En la descripción del PR: una frase con lo que has configurado hoy.
-3. (Opcional) Pide review a un compañero.
-
-## Extensión si terminas pronto
-
-- Añade `.gitignore` mínimo (`.venv/`, `.env`, `__pycache__/`, `.DS_Store`) si el repo no lo tiene.
-- Configura SSH con GitHub o el credential helper que uses.
+1. `python3 -m venv .venv` + activar + `pip install -r requirements.txt`
+2. `python sesiones/2026-09-08/ejemplos/check_entorno.py --strict`
+3. Repo `dsia-26-27-apellido-nombre` + `.gitignore` (plantilla en `sesiones/2026-09-08/ejemplos/gitignore_dsia.txt`)
+4. Rama `practica/sesion-01` + `sesion01.md` + `README.md`
+5. Pull Request con el formulario de repaso de la teoría
 
 ## Hecho cuando…
 
-URL del repo + PR (o commit en `main`) visibles, y venv verificado en tu máquina.
+URL del repo + PR visibles, venv en verde con `--strict`, y respuestas conceptuales en `sesion01.md`.

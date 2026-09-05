@@ -21,3 +21,5 @@ node_modules/
 .serverless/
 *.log
 .DS_Store
+
+sesiones/
