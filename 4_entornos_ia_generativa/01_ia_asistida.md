@@ -1,6 +1,5 @@
 # IA generativa aplicada al desarrollo
 
-Guías: [`sesiones/2026-11-10_…`](../sesiones/2026-11-10_ia_herramientas.md) · [`sesiones/2026-11-17_…`](../sesiones/2026-11-17_release_candidate.md)
 
 ## Exposición — principios (compartidos 10 y 17 nov)
 

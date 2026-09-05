@@ -1,6 +1,6 @@
 """Pipeline de ejemplo: ventas CSV → limpieza → métricas JSON.
 
-Sesión 6 oct 2026 — ver sesiones/2026-10-06_data_flows.md
+Sesión 6 oct 2026
 """
 
 from __future__ import annotations

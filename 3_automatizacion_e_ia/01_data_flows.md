@@ -1,6 +1,5 @@
 # Sesión 6 oct 2026 — Flujos de datos (data flows)
 
-Guía docente: `../sesiones/2026-10-06_data_flows.md`  
 Ejercicio 30 min: `ejercicios/E4_pipeline.md`  
 Demo: `ejemplos/pipeline_ventas.py`
 

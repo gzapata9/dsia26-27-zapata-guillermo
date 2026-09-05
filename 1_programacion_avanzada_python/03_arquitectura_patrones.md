@@ -1,6 +1,6 @@
 # Arquitectura modular, Clean Code y SOLID — notas de clase
 
-**Sesión:** 22 sep 2026 · Ver también `sesiones/2026-09-22_arquitectura_solid.md` y `03_oop_clean_code_solid.py`.
+**Sesión:** 22 sep 2026 y `03_oop_clean_code_solid.py`.
 
 ## Del notebook al sistema
 

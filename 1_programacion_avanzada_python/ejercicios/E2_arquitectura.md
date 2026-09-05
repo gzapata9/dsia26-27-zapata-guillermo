@@ -1,6 +1,6 @@
 # E2 — Arquitectura modular, Clean Code y SOLID (30 min)
 
-**Sesión:** 22 sep 2026 · Guía: `sesiones/2026-09-22_arquitectura_solid.md`  
+**Sesión:** 22 sep 2026  
 **Referencia:** `../03_oop_clean_code_solid.py`
 
 ## Meta

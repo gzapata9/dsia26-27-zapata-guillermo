@@ -1,6 +1,6 @@
 # E9 — Preparación para producción (30 min)
 
-**Sesión:** 3 nov 2026 · Guía: `sesiones/2026-11-03_despliegue.md`
+**Sesión:** 3 nov 2026
 
 ## Parte 1 — Empaquetado (8 min)
 

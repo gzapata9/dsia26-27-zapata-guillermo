@@ -1,6 +1,6 @@
 # E8b — Robustez y logging (30 min)
 
-**Sesión:** 27 oct 2026 · Guía: `sesiones/2026-10-27_e2e_ii_robustez.md`
+**Sesión:** 27 oct 2026
 
 ## Parte 1 — Correlación (8 min)
 

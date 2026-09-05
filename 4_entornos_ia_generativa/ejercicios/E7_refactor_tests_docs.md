@@ -1,6 +1,6 @@
 # E7 — Release Candidate (30 min de taller + integración)
 
-**Sesión:** 17 nov 2026 · Guía: `sesiones/2026-11-17_release_candidate.md`
+**Sesión:** 17 nov 2026
 
 ## Parte 1 — Review de riesgos (8 min)
 

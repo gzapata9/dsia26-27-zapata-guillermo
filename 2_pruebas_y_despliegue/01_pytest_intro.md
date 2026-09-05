@@ -1,6 +1,5 @@
 # Sesión 29 sep 2026 — pytest, test suites y aserciones
 
-Guía docente completa: `../sesiones/2026-09-29_pytest.md`  
 Ejercicio 30 min: `ejercicios/E3_pytest.md`
 
 ## Arranque de la demo (exposición)

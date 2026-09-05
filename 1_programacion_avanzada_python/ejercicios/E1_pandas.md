@@ -1,6 +1,6 @@
 # E1 — Procesamiento de datos con pandas (30 min)
 
-**Sesión:** 15 sep 2026 · Guía: `sesiones/2026-09-15_pandas_proyecto_i.md`  
+**Sesión:** 15 sep 2026  
 **Dataset:** `../Datos/ventas.csv`
 
 ## Preparación (antes de arrancar el cronómetro)

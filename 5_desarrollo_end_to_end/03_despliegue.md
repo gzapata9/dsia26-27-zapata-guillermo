@@ -1,6 +1,5 @@
 # Despliegue y puesta en producción
 
-Guía docente: `../sesiones/2026-11-03_despliegue.md` · Ejercicio: `ejercicios/E9_despliegue.md`
 
 ## Exposición (30 min)
 

@@ -1,6 +1,5 @@
 # E2E I — Arquitectura del flujo completo
 
-Guía docente: `../sesiones/2026-10-20_e2e_i.md` · Ejercicio: `ejercicios/E8_e2e.md`
 
 ## Exposición (30 min) — piezas
 

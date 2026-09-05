@@ -1,6 +1,5 @@
 # E2E II — Robustez, errores y logging
 
-Guía docente: `../sesiones/2026-10-27_e2e_ii_robustez.md` · Ejercicio: `ejercicios/E8b_robustez.md`
 
 ## Exposición (30 min)
 
