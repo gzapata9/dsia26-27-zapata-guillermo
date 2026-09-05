@@ -1,28 +1,41 @@
-# Sesión 8 (27 oct 2026): E2E II — robustez, errores y logging
+# E2E II — Robustez, errores y logging
 
-## Prácticas
+Guía docente: `../sesiones/2026-10-27_e2e_ii_robustez.md` · Ejercicio: `ejercicios/E8b_robustez.md`
 
-- Excepciones de dominio vs excepciones de infraestructura.
-- Timeouts y reintentos en llamadas HTTP.
-- Logging estructurado (`level`, `event`, `duration_ms`).
-- No registrar secretos ni payloads sensibles completos.
+## Exposición (30 min)
 
-## Ejemplo de logger
+### Taxonomía rápida
+
+| Tipo | HTTP típico | Log |
+| --- | --- | --- |
+| Input inválido | 400 | WARNING |
+| Dependencia caída | 502/503 | ERROR |
+| Timeout | 504 | ERROR |
+| Bug propio | 500 | ERROR + request_id |
+
+### Logging útil
 
 ```python
-import logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-)
+import logging, time, uuid
 logger = logging.getLogger("dsia.e2e")
-logger.info("prediction_ok", extra={"latency_ms": 120, "provider": "mock"})
+
+request_id = str(uuid.uuid4())
+t0 = time.perf_counter()
+# ... llamada IA ...
+logger.info(
+    "analyze_ok request_id=%s latency_ms=%.1f provider=%s",
+    request_id,
+    (time.perf_counter() - t0) * 1000,
+    "mock",
+)
 ```
 
-## Ejercicio en clase
+### Healthcheck
 
-Añade a tu API:
+`/health` debe decir algo accionable (`degraded` si el path de datos no existe o el proveedor está en fallo).
 
-1. Validación de input con mensajes 400 claros.
-2. Timeout en el cliente de IA.
-3. Endpoint `GET /health` que reporte estado del pipeline.
+### No hacer
+
+- `except Exception: pass`
+- Devolver stacktraces al cliente
+- Loguear API keys o prompts con datos personales

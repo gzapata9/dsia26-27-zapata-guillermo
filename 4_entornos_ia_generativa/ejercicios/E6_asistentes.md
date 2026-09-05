@@ -1,21 +1,36 @@
-# E6 — Taller con asistentes sobre código existente
+# E6 — Taller con asistentes sobre código existente (30 min)
 
-## Objetivo (10 nov)
+**Sesión:** 10 nov 2026 · Guía: `sesiones/2026-11-10_ia_herramientas.md`  
+**Prompts:** `../prompts/catalogo_prompts.md`
 
-Aplicar un asistente (Cursor, Claude Code o Gemini CLI) sobre **tu Proyecto II/III**, no sobre un repo vacío.
+## Reglas
 
-## Tareas (45–60 min)
+- Trabaja sobre **tu Proyecto III**, no sobre un repo vacío.
+- No commits de código que no entiendas.
+- Todo uso relevante de IA va a `AI_USAGE.md`.
 
-1. Elige un módulo con deuda técnica (nombres pobres, función larga, sin tests).
-2. Usa un prompt del catálogo para **explicar** el módulo.
-3. Pide un **plan de refactor** (sin implementar).
-4. Implementa el refactor **aceptando solo cambios que entiendas**.
-5. Genera al menos 3 tests nuevos con IA y ejecútalos (`pytest`).
+## Parte 1 — Elegir objetivo (5 min)
 
-## Entrega en el diario del proyecto
+Elige un smell concreto (función > 40 líneas, sin tests, nombres pobres, duplicación).
 
-Añade una sección `AI_USAGE.md`:
+Anota en `AI_USAGE.md` el fichero y el problema en 2 líneas.
 
-- Herramienta y modelo (si lo conoces)
-- Qué pediste (resumen del prompt)
-- Qué aceptaste / rechazaste y por qué
+## Parte 2 — Explicar (7 min)
+
+Usa el prompt “Explicar código existente”. Pega un resumen de 5–8 líneas en `AI_USAGE.md` (no el volcado entero).
+
+## Parte 3 — Plan + un cambio (10 min)
+
+1. Pide un **plan de refactor** (sin código).
+2. Implementa **solo el ítem #1** del plan (tú o con IA, pero revisado).
+3. Diff pequeño: ideal < 80 líneas.
+
+## Parte 4 — Tests asistidos (8 min)
+
+1. Pide 3 tests pytest.
+2. Ejecuta `pytest -q`.
+3. Si un test alucina APIs inexistentes → bórralo y documenta el rechazo en `AI_USAGE.md`.
+
+## Hecho cuando…
+
+Hay commit/PR de refactor + `AI_USAGE.md` con explicación, plan, aceptación/rechazo.

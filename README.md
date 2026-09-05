@@ -60,24 +60,28 @@ Al finalizar, el alumnado será capaz de:
 - Desarrollo e integración de modelos / APIs
 - Pruebas, validación, despliegue, monitorización y mantenimiento
 
+## Formato de clase
+
+En las sesiones lectivas (15 sep → 17 nov): **30 min exposición + 30 min ejercicios** + ~45 min de proyecto/presentaciones. Guías detalladas en [`sesiones/`](sesiones/).
+
 ## Calendario de sesiones (2026)
 
-| Fecha | Contenido |
-| --- | --- |
-| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub |
-| **15 sep** | Pandas y procesamiento de datos + ejercicios + presentación Proyecto I / Trabajo Intermedio |
-| **22 sep** | Arquitectura modular, patrones, Clean Code y SOLID + trabajo en proyecto |
-| **29 sep** | pytest, test suites y aserciones + trabajo en proyecto |
-| **6 oct** | Automatización: construcción de flujos de datos + trabajo en proyecto |
-| **13 oct** | Integración de servicios de IA (OpenAI, Anthropic, Hugging Face) + trabajo en proyecto |
-| **20 oct** | E2E I: Ingesta → Procesamiento → API de IA + presentación Proyecto III / Trabajo Final |
-| **27 oct** | E2E II: robustez, errores y logging + trabajo en proyecto final |
-| **3 nov** | Despliegue y puesta en producción + trabajo en proyecto final |
-| **10 nov** | Herramientas de desarrollo con IA generativa aplicadas al código existente |
-| **17 nov** | Revisión, refactorización, tests y docs asistidos por IA + Release Candidate |
-| **24 nov** | Trabajo en el proyecto final |
-| **1 dic** | Presentación Trabajo Final (1/2) |
-| **8 dic** | Presentación Trabajo Final (2/2) |
+| Fecha | Contenido | Guía |
+| --- | --- | --- |
+| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | `1_programacion_avanzada_python/01_entornos_y_git.md` |
+| **15 sep** | Pandas + ejercicios + presentación Proyecto I | [`sesiones/2026-09-15_…`](sesiones/2026-09-15_pandas_proyecto_i.md) |
+| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | [`sesiones/2026-09-22_…`](sesiones/2026-09-22_arquitectura_solid.md) |
+| **29 sep** | pytest + ejercicios | [`sesiones/2026-09-29_…`](sesiones/2026-09-29_pytest.md) |
+| **6 oct** | Data flows + proyecto | [`sesiones/2026-10-06_…`](sesiones/2026-10-06_data_flows.md) |
+| **13 oct** | APIs de IA + proyecto | [`sesiones/2026-10-13_…`](sesiones/2026-10-13_apis_ia.md) |
+| **20 oct** | E2E I + presentación Trabajo Final | [`sesiones/2026-10-20_…`](sesiones/2026-10-20_e2e_i.md) |
+| **27 oct** | E2E II: robustez y logging | [`sesiones/2026-10-27_…`](sesiones/2026-10-27_e2e_ii_robustez.md) |
+| **3 nov** | Despliegue a producción | [`sesiones/2026-11-03_…`](sesiones/2026-11-03_despliegue.md) |
+| **10 nov** | Claude Code / Gemini CLI / Cursor | [`sesiones/2026-11-10_…`](sesiones/2026-11-10_ia_herramientas.md) |
+| **17 nov** | Review + RC con IA | [`sesiones/2026-11-17_…`](sesiones/2026-11-17_release_candidate.md) |
+| **24 nov** | Trabajo en el proyecto final | — |
+| **1 dic** | Presentación Trabajo Final (1/2) | — |
+| **8 dic** | Presentación Trabajo Final (2/2) | — |
 
 ## Evaluación ordinaria
 

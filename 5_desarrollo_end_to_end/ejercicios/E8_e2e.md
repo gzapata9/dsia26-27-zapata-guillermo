@@ -1,12 +1,29 @@
-# E8 — Integrar el flujo E2E
+# E8 — Flujo E2E mínimo (30 min)
 
-Construye (o completa) una solución con estas etapas:
+**Sesión:** 20 oct 2026 · Guía: `sesiones/2026-10-20_e2e_i.md`  
+**Base:** `../plantilla_proyecto/`
 
-1. **Ingesta** de un CSV o API pública.
-2. **Procesamiento** (limpieza + features simples).
-3. **Llamada a IA** (mock permitido en desarrollo; proveedor real valorado).
-4. **API** que exponga el resultado (`POST /analyze` o similar).
-5. **Tests** del camino feliz y de un error controlado.
-6. **Despliegue** documentado.
+## Parte 1 — Levantar plantilla (8 min)
 
-Este ejercicio es la columna vertebral del **Proyecto III**.
+1. Copia `plantilla_proyecto` a tu repo de Proyecto III.
+2. Ejecuta `ingest.py` sobre `ventas.csv`.
+3. Arranca `app.py` y prueba `/health` + `/analyze` con curl.
+
+## Parte 2 — Enchufar cliente IA (10 min)
+
+Sustituye el resumen naive por `complete(provider="mock", prompt=...)` (importa desde el Tema 3 o copia el módulo).
+
+La respuesta JSON debe incluir `provider`.
+
+## Parte 3 — Contrato (7 min)
+
+- Campo opcional `model` en la respuesta (puede ser `null` en mock).
+- Mensaje 400 claro si `text` falta o es vacío.
+
+## Parte 4 — Test (5 min)
+
+Añade test de texto vacío → 400. Suite completa en verde.
+
+## Hecho cuando…
+
+Demo curl funciona y `pytest -q` pasa en tu copia del proyecto.

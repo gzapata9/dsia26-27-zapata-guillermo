@@ -1,30 +1,28 @@
-# Sesiones 10–11 (10 y 17 nov 2026): IA generativa en el desarrollo
+# IA generativa aplicada al desarrollo
 
-## Principios
+Guías: [`sesiones/2026-11-10_…`](../sesiones/2026-11-10_ia_herramientas.md) · [`sesiones/2026-11-17_…`](../sesiones/2026-11-17_release_candidate.md)
 
-1. **Tú eres responsable** del código que entregas, aunque lo haya sugerido una IA.
-2. Usa IA para acelerar, no para sustituir el entendimiento.
-3. **Cita** la herramienta cuando haya generado partes relevantes del trabajo.
-4. No pegues secretos, datos personales ni código propietario sensible en prompts en la nube sin permiso.
+## Exposición — principios (compartidos 10 y 17 nov)
 
-## Flujo recomendado
+1. **Tú entregas** el código: la IA sugiere.
+2. Flujo: Contexto → Prompt → Borrador → Revisión → Tests → Commit.
+3. Cita la herramienta en `AI_USAGE.md` cuando aporte partes relevantes.
+4. Nunca pegues secretos ni datos personales en prompts cloud sin permiso.
 
-```text
-Contexto → Prompt → Borrador IA → Revisión humana → Tests → Commit
-```
+## Herramientas
 
-## Herramientas (orientativas)
-
-| Herramienta | Uso típico en clase |
+| Herramienta | Encaje en clase |
 | --- | --- |
-| Cursor | Edición asistida sobre el repo |
-| Claude Code | Agente CLI sobre el proyecto |
-| Gemini CLI | Prototipado y exploración |
+| Cursor | Refactors multiarchivo en el IDE |
+| Claude Code | Agente CLI sobre el repo |
+| Gemini CLI | Exploración / prototipos |
 
-## Checklist antes de aceptar código generado
+## Checklist de aceptación de código generado
 
-- [ ] Compila / importa sin errores
-- [ ] Hay tests (o se han actualizado)
-- [ ] No introduce dependencias innecesarias
-- [ ] Estilo coherente con el resto del repo
-- [ ] Se ha documentado el uso de IA si aplica
+- [ ] Lo entiendo línea a línea en el diff
+- [ ] Imports y APIs existen de verdad
+- [ ] Tests nuevos o actualizados en verde
+- [ ] Sin dependencias sorpresa
+- [ ] Sin secretos
+
+Prompts listos: `prompts/catalogo_prompts.md`.

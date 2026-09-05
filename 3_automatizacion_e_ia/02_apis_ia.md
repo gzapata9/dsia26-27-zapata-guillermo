@@ -1,26 +1,51 @@
-# Sesión 6 (13 oct 2026): Integración de servicios de IA vía API
+# Sesión 13 oct 2026 — APIs de IA (OpenAI, Anthropic, Hugging Face)
 
-## Objetivos
+Guía docente: `../sesiones/2026-10-13_apis_ia.md`  
+Ejercicio 30 min: `ejercicios/E5_apis_ia.md`  
+Demo: `ejemplos/ai_api_client.py`
 
-- Consumir APIs de OpenAI, Anthropic y Hugging Face.
-- Gestionar claves con `.env` (nunca en el código).
-- Diseñar un cliente con **fallback** y modo `mock` para desarrollo.
+## Exposición (30 min) — mapa mental
 
-## Preparación
-
-```bash
-cp .env.example .env
-# edita .env con tus claves (opcionales si usas --provider mock)
-pip install openai anthropic huggingface_hub   # según proveedor
+```text
+Tu aplicación ──► Cliente unificado ──► Proveedor (mock|openai|anthropic|hf)
+                      │
+                      ├─ timeouts / retries
+                      ├─ secretos vía env
+                      └─ respuesta normalizada (AIResponse)
 ```
 
-## Demo
+### Checklist de seguridad
+
+1. Claves solo en `.env` / secretos del PaaS.
+2. `.env` en `.gitignore`; existe `.env.example`.
+3. No loguear prompts con PII.
+4. Modo `mock` obligatorio para CI y desarrollo offline.
+
+### Demo
 
 ```bash
+cp ../.env.example ../.env   # desde la raíz del repo
 cd 3_automatizacion_e_ia/ejemplos
-python ai_api_client.py --provider mock --prompt "Explica un data pipeline en 5 líneas"
+python ai_api_client.py --provider mock --prompt "Resume Clean Code en 3 bullets"
 ```
 
-## Ejercicio
+Con claves reales (opcional en aula):
 
-Ver `ejercicios/E5_apis_ia.md`.
+```bash
+python ai_api_client.py --provider openai --prompt "..."
+python ai_api_client.py --provider anthropic --prompt "..."
+python ai_api_client.py --provider hf --prompt "..."
+```
+
+### Errores que debes enseñar a manejar
+
+| Situación | Estrategia |
+| --- | --- |
+| 401/403 | Configuración; no reintentar a ciegas |
+| 429 | Backoff + jitter |
+| 5xx / timeout | Reintento limitado + fallback |
+| Respuesta vacía | Validar y fallar explícito |
+
+## Ejercicios
+
+`E5_apis_ia.md`: batch JSONL + retries + `AI_USAGE.md`.

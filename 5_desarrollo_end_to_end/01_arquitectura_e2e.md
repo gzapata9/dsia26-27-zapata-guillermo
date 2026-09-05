@@ -1,31 +1,49 @@
-# Sesión 7 (20 oct 2026): E2E I — flujo completo
+# E2E I — Arquitectura del flujo completo
 
-## Arquitectura de referencia
+Guía docente: `../sesiones/2026-10-20_e2e_i.md` · Ejercicio: `ejercicios/E8_e2e.md`
+
+## Exposición (30 min) — piezas
 
 ```text
 [CSV / API origen]
         │
         ▼
-   Ingesta + validación
+   Ingesta + validación     (ingest.py / pipeline)
         │
         ▼
    Procesamiento / features
         │
         ▼
-   Servicio de IA (API)
+   Servicio de IA (API)     (ai_api_client / mock)
         │
         ▼
-   API propia (Flask/FastAPI) ──► Cliente / dashboard
+   API propia               (/health, /analyze)
         │
         ▼
    Logs + métricas
 ```
 
-## Requisitos mínimos del Trabajo Final
+### Demo en vivo
 
-1. Código modular con tests.
-2. Al menos una integración real o mockeable con un servicio de IA.
-3. Endpoint HTTP documentado.
-4. Instrucciones de ejecución local y de despliegue.
+```bash
+cd 5_desarrollo_end_to_end/plantilla_proyecto
+python ingest.py --input ../../3_automatizacion_e_ia/Datos/ventas.csv --output data/clean.csv
+python app.py
+```
 
-Usa la plantilla en `plantilla_proyecto/` como punto de partida opcional.
+```bash
+curl -s http://127.0.0.1:8000/health
+curl -s -X POST http://127.0.0.1:8000/analyze \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"Texto de ejemplo suficientemente largo para el resumen mock del curso DSIA"}'
+pytest -q
+```
+
+### Contratos que debes fijar el día 1 del Trabajo Final
+
+1. Schema de entrada (columnas / JSON).
+2. Schema de salida de `/analyze`.
+3. Proveedor IA por defecto (`mock` en CI).
+4. Criterio de “demo lista” (3 comandos).
+
+Plantilla: `plantilla_proyecto/`. Enunciado: `proyectos/proyecto_iii/`.

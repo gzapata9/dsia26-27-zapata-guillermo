@@ -1,20 +1,65 @@
-# E3 — Tests del pipeline de ventas
+# E3 — pytest sobre el pipeline de ventas (30 min)
 
-## Objetivo
+**Sesión:** 29 sep 2026 · Guía: `sesiones/2026-09-29_pytest.md`
 
-Añade una carpeta `tests/` a tu solución del Proyecto I / ejercicio E2 y cubre:
+## Parte 0 — Calentamiento (5 min)
 
-1. Carga correcta de CSV existente.
-2. Error controlado si el fichero no existe.
-3. Separación de filas válidas / inválidas (usa el `ventas.csv` del curso).
-4. Cálculo de importe por región con un dataset pequeño **en memoria** (fixture).
+```bash
+cd 2_pruebas_y_despliegue/ejemplos
+pytest -q
+# Rompe a propósito un expected y observa el diff de pytest
+```
 
-## Criterios
+## Parte 1 — Fixture en memoria (10 min)
 
-- Al menos **8 tests** pasando con `pytest -q`.
-- Cobertura de casos límite (precio negativo, unidades vacías).
-- Un test marcado como `@pytest.mark.integration` que lea el CSV real.
+En el `tests/` de tu Proyecto I:
 
-## Entrega
+```python
+@pytest.fixture
+def ventas_mini():
+    return pd.DataFrame({
+        "fecha": ["2026-01-01", "2026-01-02", "2026-01-03"],
+        "region": ["Norte", "Sur", "Norte"],
+        "producto": ["A", "B", "A"],
+        "unidades": [2, None, 5],
+        "precio_unitario": [10.0, 20.0, -1.0],
+        "cliente_id": ["C1", "C2", "C1"],
+    })
+```
 
-Incluye en el README del proyecto cómo ejecutar los tests.
+Escribe tests que verifiquen cuántas filas válidas/inválidas salen del validador.
+
+## Parte 2 — Errores y bordes (8 min)
+
+1. `pytest.raises` si el path no existe.
+2. `@pytest.mark.parametrize` para precios `0`, `-1`, `1` (solo el último válido).
+
+## Parte 3 — Integración (5 min)
+
+Un test que lea el `ventas.csv` real del curso, marcado:
+
+```python
+@pytest.mark.integration
+def test_csv_curso_tiene_ocho_validas():
+    ...
+```
+
+Ejecuta:
+
+```bash
+pytest -q
+pytest -q -m "not integration"
+```
+
+## Parte 4 — Documentar (2 min)
+
+Añade al README:
+
+```bash
+pytest -q
+pytest -q -m "not integration"
+```
+
+## Hecho cuando…
+
+≥ **8 tests** en verde y al menos 1 marcado `integration`.

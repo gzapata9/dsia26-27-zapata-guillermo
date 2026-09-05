@@ -1,13 +1,7 @@
 # Tema 2 — Pruebas y despliegue
 
-Sesiones: **8 sep** (Git/entornos), **29 sep** (pytest), más CI/CD transversal.
+| Sesión | Guía | Material | Ejercicio |
+| --- | --- | --- | --- |
+| **29 sep** | [`sesiones/2026-09-29_pytest.md`](../sesiones/2026-09-29_pytest.md) | `01_pytest_intro.md`, `ejemplos/` | `ejercicios/E3_pytest.md` |
 
-## Materiales
-
-| Fichero | Descripción |
-| --- | --- |
-| `01_pytest_intro.md` | Guía de pytest |
-| `ejemplos/calculator.py` | Código a testear |
-| `ejemplos/test_calculator.py` | Tests unitarios |
-| `ejercicios/E3_pytest.md` | Ejercicio de clase |
-| `../.github/workflows/ci.yml` | CI del repositorio (raíz) |
+CI del repo: [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).
