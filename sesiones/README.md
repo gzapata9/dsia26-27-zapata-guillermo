@@ -8,4 +8,8 @@ Cada sesión lectiva (salvo presentaciones) sigue este ritmo sobre **1 h 45 min*
 | **Ejercicios** | **30 min** | Práctica individual/parejas con checkpoints |
 | **Proyecto / presentaciones** | **~45 min** | Trabajo intermedio/final o hitos de entrega |
 
-Las guías detalladas están en esta carpeta (`2026-…_.md`). Los notebooks, scripts y enunciados de ejercicio viven en las carpetas de cada tema.
+Las guías detalladas están en esta carpeta (`2026-…_.md`), incluida la de apertura:
+
+- [`2026-09-08_presentacion_venv_git.md`](2026-09-08_presentacion_venv_git.md) — presentación + venv + Git/GitHub
+
+Los notebooks, scripts y enunciados de ejercicio viven en las carpetas de cada tema.

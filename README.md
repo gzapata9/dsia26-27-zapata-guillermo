@@ -68,7 +68,7 @@ En las sesiones lectivas (15 sep → 17 nov): **30 min exposición + 30 min ejer
 
 | Fecha | Contenido | Guía |
 | --- | --- | --- |
-| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | `1_programacion_avanzada_python/01_entornos_y_git.md` |
+| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | [`sesiones/2026-09-08_…`](sesiones/2026-09-08_presentacion_venv_git.md) |
 | **15 sep** | Pandas + ejercicios + presentación Proyecto I | [`sesiones/2026-09-15_…`](sesiones/2026-09-15_pandas_proyecto_i.md) |
 | **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | [`sesiones/2026-09-22_…`](sesiones/2026-09-22_arquitectura_solid.md) |
 | **29 sep** | pytest + ejercicios | [`sesiones/2026-09-29_…`](sesiones/2026-09-29_pytest.md) |
