@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-09-08/teoria.md`](2026-09-08/teoria.md) · [`2026-09-08/ejercicios.md`](2026-09-08/ejercicios.md) · [`2026-09-08/ejemplos/`](2026-09-08/ejemplos/)
+
 # 8 sep 2026 — Presentación + entornos virtuales + Git/GitHub
 
 **Duración total:** 1 h 45 min  

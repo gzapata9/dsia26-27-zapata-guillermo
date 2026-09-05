@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-11-10/teoria.md`](2026-11-10/teoria.md) · [`2026-11-10/ejercicios.md`](2026-11-10/ejercicios.md) · [`2026-11-10/ejemplos/`](2026-11-10/ejemplos/)
+
 # 10 nov 2026 — Herramientas de desarrollo con IA generativa
 
 **Material:** `4_entornos_ia_generativa/` · `prompts/catalogo_prompts.md` · `ejercicios/E6_asistentes.md`

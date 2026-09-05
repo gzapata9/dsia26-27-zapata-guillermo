@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-09-15/teoria.md`](2026-09-15/teoria.md) · [`2026-09-15/ejercicios.md`](2026-09-15/ejercicios.md) · [`2026-09-15/ejemplos/`](2026-09-15/ejemplos/)
+
 # 15 sep 2026 — Pandas y procesamiento de datos + Proyecto I
 
 **Duración total:** 1 h 45 min  

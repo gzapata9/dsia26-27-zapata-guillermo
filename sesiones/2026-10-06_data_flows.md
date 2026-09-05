@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-10-06/teoria.md`](2026-10-06/teoria.md) · [`2026-10-06/ejercicios.md`](2026-10-06/ejercicios.md) · [`2026-10-06/ejemplos/`](2026-10-06/ejemplos/)
+
 # 6 oct 2026 — Construcción de flujos de datos (data flows)
 
 **Material:** `3_automatizacion_e_ia/01_data_flows.md` · `ejemplos/pipeline_ventas.py` · `ejercicios/E4_pipeline.md`

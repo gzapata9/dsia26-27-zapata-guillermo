@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-11-03/teoria.md`](2026-11-03/teoria.md) · [`2026-11-03/ejercicios.md`](2026-11-03/ejercicios.md) · [`2026-11-03/ejemplos/`](2026-11-03/ejemplos/)
+
 # 3 nov 2026 — Despliegue y puesta en producción
 
 **Material:** `5_desarrollo_end_to_end/03_despliegue.md` · `ejercicios/E9_despliegue.md`

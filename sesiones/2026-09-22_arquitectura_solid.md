@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-09-22/teoria.md`](2026-09-22/teoria.md) · [`2026-09-22/ejercicios.md`](2026-09-22/ejercicios.md) · [`2026-09-22/ejemplos/`](2026-09-22/ejemplos/)
+
 # 22 sep 2026 — Arquitectura modular, Clean Code y SOLID
 
 **Material:** `1_programacion_avanzada_python/03_oop_clean_code_solid.py` · `03_arquitectura_patrones.md` · `ejercicios/E2_arquitectura.md`

@@ -68,17 +68,17 @@ En las sesiones lectivas (15 sep → 17 nov): **30 min exposición + 30 min ejer
 
 | Fecha | Contenido | Guía |
 | --- | --- | --- |
-| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | [`sesiones/2026-09-08_…`](sesiones/2026-09-08_presentacion_venv_git.md) |
-| **15 sep** | Pandas + ejercicios + presentación Proyecto I | [`sesiones/2026-09-15_…`](sesiones/2026-09-15_pandas_proyecto_i.md) |
-| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | [`sesiones/2026-09-22_…`](sesiones/2026-09-22_arquitectura_solid.md) |
-| **29 sep** | pytest + ejercicios | [`sesiones/2026-09-29_…`](sesiones/2026-09-29_pytest.md) |
-| **6 oct** | Data flows + proyecto | [`sesiones/2026-10-06_…`](sesiones/2026-10-06_data_flows.md) |
-| **13 oct** | APIs de IA + proyecto | [`sesiones/2026-10-13_…`](sesiones/2026-10-13_apis_ia.md) |
-| **20 oct** | E2E I + presentación Trabajo Final | [`sesiones/2026-10-20_…`](sesiones/2026-10-20_e2e_i.md) |
-| **27 oct** | E2E II: robustez y logging | [`sesiones/2026-10-27_…`](sesiones/2026-10-27_e2e_ii_robustez.md) |
-| **3 nov** | Despliegue a producción | [`sesiones/2026-11-03_…`](sesiones/2026-11-03_despliegue.md) |
-| **10 nov** | Claude Code / Gemini CLI / Cursor | [`sesiones/2026-11-10_…`](sesiones/2026-11-10_ia_herramientas.md) |
-| **17 nov** | Review + RC con IA | [`sesiones/2026-11-17_…`](sesiones/2026-11-17_release_candidate.md) |
+| **8 sep** | Presentación + entornos virtuales Python + Git/GitHub | [`sesiones/2026-09-08/`](sesiones/2026-09-08/) |
+| **15 sep** | Pandas + ejercicios + presentación Proyecto I | [`sesiones/2026-09-15/`](sesiones/2026-09-15/) |
+| **22 sep** | Arquitectura, Clean Code y SOLID + ejercicios | [`sesiones/2026-09-22/`](sesiones/2026-09-22/) |
+| **29 sep** | pytest + ejercicios | [`sesiones/2026-09-29/`](sesiones/2026-09-29/) |
+| **6 oct** | Data flows + proyecto | [`sesiones/2026-10-06/`](sesiones/2026-10-06/) |
+| **13 oct** | APIs de IA + proyecto | [`sesiones/2026-10-13/`](sesiones/2026-10-13/) |
+| **20 oct** | E2E I + presentación Trabajo Final | [`sesiones/2026-10-20/`](sesiones/2026-10-20/) |
+| **27 oct** | E2E II: robustez y logging | [`sesiones/2026-10-27/`](sesiones/2026-10-27/) |
+| **3 nov** | Despliegue a producción | [`sesiones/2026-11-03/`](sesiones/2026-11-03/) |
+| **10 nov** | Claude Code / Gemini CLI / Cursor | [`sesiones/2026-11-10/`](sesiones/2026-11-10/) |
+| **17 nov** | Review + RC con IA | [`sesiones/2026-11-17/`](sesiones/2026-11-17/) |
 | **24 nov** | Trabajo en el proyecto final | — |
 | **1 dic** | Presentación Trabajo Final (1/2) | — |
 | **8 dic** | Presentación Trabajo Final (2/2) | — |

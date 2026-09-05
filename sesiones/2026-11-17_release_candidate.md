@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-11-17/teoria.md`](2026-11-17/teoria.md) · [`2026-11-17/ejercicios.md`](2026-11-17/ejercicios.md) · [`2026-11-17/ejemplos/`](2026-11-17/ejemplos/)
+
 # 17 nov 2026 — Revisión, refactor, tests/docs con IA + Release Candidate
 
 **Material:** `ejercicios/E7_refactor_tests_docs.md` · catálogo de prompts · Proyecto III

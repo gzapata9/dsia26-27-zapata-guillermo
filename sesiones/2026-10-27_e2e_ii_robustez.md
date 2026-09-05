@@ -1,3 +1,5 @@
+**Materiales de aula:** [`2026-10-27/teoria.md`](2026-10-27/teoria.md) · [`2026-10-27/ejercicios.md`](2026-10-27/ejercicios.md) · [`2026-10-27/ejemplos/`](2026-10-27/ejemplos/)
+
 # 27 oct 2026 — E2E II: Robustez, errores y logging
 
 **Material:** `5_desarrollo_end_to_end/02_robustez_logging.md` · `ejercicios/E8b_robustez.md`
