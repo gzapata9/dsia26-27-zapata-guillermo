@@ -11,7 +11,7 @@ def main():
         '--file', 
         type=str, 
         required=True, 
-        help="Ruta al archivo CSV de ventas (ej: Datos/ventas.csv)"
+        help="Ruta al archivo CSV de ventas"
     )
     
     args = parser.parse_args()
@@ -28,19 +28,19 @@ def main():
         # 2. Calcular métricas
         metrics = SalesMetrics(valid_data)
         
-        print("=== MÉTRICAS DE NEGOCIO ===")
+        print("MÉTRICAS DE NEGOCIO")
         print(f"Importe Total Global: ${metrics.importe_total_global():.2f}")
         
         print("\nImporte por Región:")
         for region, importe in metrics.importe_por_region().items():
-            print(f"  - {region}: ${importe:.2f}")
+            print(f"{region}: ${importe:.2f}")
 
         print("\nImporte por Producto:")
         for producto, importe in metrics.importe_por_producto().items():
-            print(f"  - {producto}: ${importe:.2f}")
+            print(f"{producto}: ${importe:.2f}")
 
     except Exception as e:
-        print(f"Error crítico en el pipeline: {e}")
+        print(f"Error en el pipeline: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ def test_load_data_file_not_found():
         loader.load_data()
 
 def test_load_data_success(tmp_path):
-    # Creamos un CSV temporal
+    # CSV temporal
     csv_file = tmp_path / "test_ventas.csv"
     with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)

@@ -5,15 +5,15 @@ class ValidationError(Exception):
     pass
 
 class InvalidUnitsError(ValidationError):
-    """Lanzada cuando las unidades son negativas o inválidas."""
+    """Error cuando las unidades son negativas o inválidas."""
     pass
 
 class InvalidPriceError(ValidationError):
-    """Lanzada cuando el precio unitario es negativo."""
+    """Error cuando el precio unitario es negativo."""
     pass
 
 class InvalidDateError(ValidationError):
-    """Lanzada cuando la fecha no tiene el formato correcto."""
+    """Error cuando la fecha no tiene el formato correcto."""
     pass
 
 class SalesValidator:
@@ -22,7 +22,7 @@ class SalesValidator:
     @staticmethod
     def validate_row(row: dict) -> dict:
         try:
-            # Validación de fecha (formato YYYY-MM-DD)
+            # Validación del formato YYYY-MM-DD
             fecha_str = row.get('fecha', '')
             try:
                 datetime.strptime(fecha_str, "%Y-%m-%d")
