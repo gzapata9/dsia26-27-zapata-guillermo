@@ -1,0 +1,14 @@
+[project]
+name = "bikedemand"
+version = "0.2.0"
+description = "Previsión de demanda horaria de bicicleta compartida: sklearn + Open-Meteo + LLM (HF/NVIDIA)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["integration: tests de integración (pipeline completo, sin red: APIs simuladas e IA en mock)"]
+
+[tool.coverage.run]
+source = ["bikedemand"]
+omit = ["bikedemand/__main__.py"]

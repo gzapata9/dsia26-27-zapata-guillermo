@@ -1,0 +1,8 @@
+# Capas generadas por `prepare` (se regeneran desde data/raw)
+data/silver/
+data/gold/
+data/quarantine/
+# Salidas de cada ejecución
+outputs/
+.env
+.coverage

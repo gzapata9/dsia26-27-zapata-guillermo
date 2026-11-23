@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 1135" width="1480" height="1135" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+<marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker>
+</defs>
+<rect width="1480" height="1135" fill="#ffffff"/>
+<text x="740.0" y="34" font-size="21" font-weight="700" fill="#222" text-anchor="middle" >BikeDemand Ops — arquitectura del pipeline (Proyecto II)</text>
+<text x="740.0" y="56" font-size="12.5" font-weight="normal" fill="#555" text-anchor="middle" >Flujo de datos (→) · flujo de control (- - →) · flujo de negocio: previsión → decisión → acción del equipo de operaciones</text>
+<rect x="270" y="78" width="1190" height="262" rx="14" fill="#1F7A63" fill-opacity="0.05" stroke="#1F7A63" stroke-opacity="0.55" stroke-dasharray="3 5" stroke-width="1.4"/>
+<text x="282" y="96" font-size="12" font-weight="700" fill="#1F7A63" text-anchor="start" >JOB prepare · batch diario · python -m bikedemand prepare</text>
+<rect x="1005" y="372" width="455" height="230" rx="14" fill="#6B4BA1" fill-opacity="0.05" stroke="#6B4BA1" stroke-opacity="0.55" stroke-dasharray="3 5" stroke-width="1.4"/>
+<text x="1017" y="390" font-size="12" font-weight="700" fill="#6B4BA1" text-anchor="start" >JOB train · batch bajo demanda</text>
+<rect x="270" y="372" width="715" height="450" rx="14" fill="#B26A00" fill-opacity="0.05" stroke="#B26A00" stroke-opacity="0.55" stroke-dasharray="3 5" stroke-width="1.4"/>
+<text x="282" y="390" font-size="12" font-weight="700" fill="#B26A00" text-anchor="start" >JOB forecast · micro-batch horario/diario</text>
+<rect x="40" y="110" width="210" height="92" rx="9" fill="#EAF1FB" stroke="#2F5D9B" stroke-width="1.6"/>
+<text x="145.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Fuente histórica</text>
+<text x="145.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >UCI Bike Sharing (CSV)</text>
+<text x="145.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >17.379 h · DC 2011-2012</text>
+<text x="145.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >licencia CC BY 4.0</text>
+<rect x="285" y="110" width="210" height="92" rx="9" fill="#E4F4F1" stroke="#1F7A63" stroke-width="1.6"/>
+<text x="390.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Ingesta</text>
+<text x="390.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >fetch: descarga idempotente</text>
+<text x="390.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >load_raw: contrato de</text>
+<text x="390.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >16 columnas → exit 2</text>
+<rect x="530" y="110" width="210" height="92" rx="9" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.6"/>
+<text x="635.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Raw / Bronze</text>
+<text x="635.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >data/raw/hour.csv</text>
+<text x="635.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >inmutable: fuente de</text>
+<text x="635.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >verdad para reprocesar</text>
+<rect x="775" y="110" width="210" height="92" rx="9" fill="#E4F4F1" stroke="#1F7A63" stroke-width="1.6"/>
+<text x="880.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Validación y calidad</text>
+<text x="880.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >rangos, fechas, duplicados,</text>
+<text x="880.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >cnt = casual + registered</text>
+<text x="880.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >gate error_rate ≤ 5 % → exit 1</text>
+<rect x="1020" y="110" width="210" height="92" rx="9" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.6"/>
+<text x="1125.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Silver</text>
+<text x="1125.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >data/silver/hour_clean.csv</text>
+<text x="1125.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >filas validadas y tipadas</text>
+<text x="1125.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >(se sobrescribe: idempotente)</text>
+<rect x="1235" y="110" width="210" height="92" rx="9" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.6"/>
+<text x="1340.0" y="131" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Gold</text>
+<text x="1340.0" y="150" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >training_table.csv</text>
+<text x="1340.0" y="165" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >features en unidades físicas</text>
+<text x="1340.0" y="180" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >(°C, %, km/h) + objetivo cnt</text>
+<path d="M250,156.0 L281,156.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M495,156.0 L526,156.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M740,156.0 L771,156.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M985,156.0 L1016,156.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M1230,156.0 L1231,156.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="775" y="248" width="210" height="70" rx="9" fill="#FBE3E3" stroke="#A33A3A" stroke-width="1.6"/>
+<text x="880.0" y="269" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Cuarentena</text>
+<text x="880.0" y="288" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >data/quarantine/rejected.csv</text>
+<text x="880.0" y="303" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >fila + reject_reason</text>
+<path d="M880.0,202 L880.0,244" fill="none" stroke="#A33A3A" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+<rect x="285" y="248" width="210" height="70" rx="9" fill="#FBE3E3" stroke="#A33A3A" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="390.0" y="269" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Reprocesamiento</text>
+<text x="390.0" y="288" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >corregir origen y relanzar</text>
+<text x="390.0" y="303" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >prepare (mismo resultado)</text>
+<path d="M775,283 L499,283" fill="none" stroke="#A33A3A" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+<path d="M390.0,248 L390.0,206" fill="none" stroke="#A33A3A" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+<rect x="1235" y="410" width="210" height="92" rx="9" fill="#E9F5E1" stroke="#3F7D20" stroke-width="1.6"/>
+<text x="1340.0" y="431" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Entrenamiento sklearn</text>
+<text x="1340.0" y="450" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >HistGradientBoosting</text>
+<text x="1340.0" y="465" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >split temporal (test oct-dic 12)</text>
+<text x="1340.0" y="480" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >gate R² ≥ 0,80 → exit 1</text>
+<path d="M1340.0,202 L1340.0,406" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="1015" y="530" width="210" height="92" rx="9" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.6"/>
+<text x="1120.0" y="551" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Registro de modelo</text>
+<text x="1120.0" y="570" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >models/demand_model.joblib</text>
+<text x="1120.0" y="585" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >model_card.json (métricas,</text>
+<text x="1120.0" y="600" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >hash de datos, versión)</text>
+<path d="M1340.0,502 L1340.0,576 L1229,576" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="40" y="410" width="210" height="92" rx="9" fill="#EAF1FB" stroke="#2F5D9B" stroke-width="1.6"/>
+<text x="145.0" y="431" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Fuentes en vivo</text>
+<text x="145.0" y="450" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >Open-Meteo: tiempo 48 h</text>
+<text x="145.0" y="465" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >Nager.Date: festivos US/DC</text>
+<text x="145.0" y="480" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >APIs abiertas sin clave</text>
+<rect x="290" y="410" width="210" height="92" rx="9" fill="#E4F4F1" stroke="#1F7A63" stroke-width="1.6"/>
+<text x="395.0" y="431" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Borde datos abiertos</text>
+<text x="395.0" y="450" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >open_data_client · APIResult</text>
+<text x="395.0" y="465" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >timeout + reintento 5xx/429</text>
+<text x="395.0" y="480" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >caída meteo → exit 3</text>
+<path d="M250,456.0 L286,456.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="570" y="410" width="210" height="92" rx="9" fill="#E4F4F1" stroke="#1F7A63" stroke-width="1.6"/>
+<text x="675.0" y="431" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Features de previsión</text>
+<text x="675.0" y="450" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >WMO → weathersit, estación,</text>
+<text x="675.0" y="465" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >laborable/festivo, hora</text>
+<text x="675.0" y="480" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >(mismo vector que en train)</text>
+<path d="M500,456.0 L566,456.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="775" y="530" width="210" height="92" rx="9" fill="#E9F5E1" stroke="#3F7D20" stroke-width="1.6"/>
+<text x="880.0" y="551" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Inferencia sklearn</text>
+<text x="880.0" y="570" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >load_model (registro) + predict</text>
+<text x="880.0" y="585" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >alquileres previstos por hora</text>
+<text x="880.0" y="600" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >(pred_cnt ≥ 0)</text>
+<path d="M675.0,502 L675.0,576 L771,576" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M1015,576 L989,576" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="775" y="680" width="210" height="92" rx="9" fill="#E9F5E1" stroke="#3F7D20" stroke-width="1.6"/>
+<text x="880.0" y="701" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Motor de decisión (reglas)</text>
+<text x="880.0" y="720" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >top-3 horas punta, 2 ventanas</text>
+<text x="880.0" y="735" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >valle de 3 h, horas de lluvia,</text>
+<text x="880.0" y="750" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >festivos → resumen determinista</text>
+<path d="M880.0,622 L880.0,676" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="290" y="680" width="210" height="92" rx="9" fill="#FFF1DB" stroke="#B26A00" stroke-width="1.6"/>
+<text x="395.0" y="701" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Borde IA (LLM)</text>
+<text x="395.0" y="720" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >complete(): mock | hf | nvidia</text>
+<text x="395.0" y="735" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >Llama-3.1-8B-Instruct</text>
+<text x="395.0" y="750" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >reintento solo transitorio</text>
+<path d="M775,726.0 L504,726.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="655" y="718.0" font-size="11" font-weight="normal" fill="#555" text-anchor="middle" font-style="italic">prompt con agregados</text>
+<text x="395.0" y="788" font-size="11" font-weight="normal" fill="#B26A00" text-anchor="middle" >si falla → modo degradado (solo reglas)</text>
+<rect x="290" y="830" width="210" height="92" rx="9" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.6"/>
+<text x="395.0" y="851" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Serving (salidas)</text>
+<text x="395.0" y="870" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >outputs/forecast.csv</text>
+<text x="395.0" y="885" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >briefing.md · *_metrics.json</text>
+<text x="395.0" y="900" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >III: API /predict + dashboard</text>
+<path d="M395.0,794 L395.0,826" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="40" y="830" width="200" height="92" rx="9" fill="#FDE9E7" stroke="#B3361F" stroke-width="1.6"/>
+<text x="140.0" y="851" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Usuario de negocio</text>
+<text x="140.0" y="870" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >equipo de operaciones:</text>
+<text x="140.0" y="885" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >reequilibrado antes de picos,</text>
+<text x="140.0" y="900" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >mantenimiento en valles</text>
+<path d="M290,876.0 L244,876.0" fill="none" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="795" y="842" width="430" height="96" rx="9" fill="#F2F2F2" stroke="#5A5A5A" stroke-width="1.6"/>
+<text x="1010.0" y="863" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Orquestador</text>
+<text x="1010.0" y="882" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >CLI run-all · scripts/run_pipeline.sh (cron, &amp;&amp;)</text>
+<text x="1010.0" y="897" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >GitHub Actions: CI en cada push + forecast diario</text>
+<text x="1010.0" y="912" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >exit 0 OK · 1 gate · 2 entrada · 3 dependencia</text>
+<rect x="795" y="952" width="430" height="96" rx="9" fill="#F2F2F2" stroke="#5A5A5A" stroke-width="1.6"/>
+<text x="1010.0" y="973" font-size="13.5" font-weight="700" fill="#222" text-anchor="middle" >Monitorización</text>
+<text x="1010.0" y="992" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >run.log (run_id, latency_ms, provider, causa)</text>
+<text x="1010.0" y="1007" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >prepare/train/forecast_metrics.json</text>
+<text x="1010.0" y="1022" font-size="11" font-weight="normal" fill="#3a3a3a" text-anchor="middle" >estado de dependencias ok/degraded</text>
+<path d="M1010,842 L1010,816 L1370.0,816 L1370.0,506" fill="none" stroke="#444" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+<text x="1380.0" y="810" font-size="11" font-weight="normal" fill="#666" text-anchor="start" font-style="italic">lanza train</text>
+<path d="M1225,890 L1455,890 L1455,210" fill="none" stroke="#444" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+<text x="1449" y="884" font-size="11" font-weight="normal" fill="#666" text-anchor="end" font-style="italic">lanza prepare</text>
+<rect x="40" y="1070" width="18" height="14" rx="3" fill="#EAF1FB" stroke="#2F5D9B" stroke-width="1.4"/>
+<text x="64" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Fuente de datos</text>
+<rect x="189.0" y="1070" width="18" height="14" rx="3" fill="#F1ECF8" stroke="#6B4BA1" stroke-width="1.4"/>
+<text x="213.0" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Almacena datos</text>
+<rect x="331.4" y="1070" width="18" height="14" rx="3" fill="#E4F4F1" stroke="#1F7A63" stroke-width="1.4"/>
+<text x="355.4" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Transforma / valida</text>
+<rect x="506.79999999999995" y="1070" width="18" height="14" rx="3" fill="#E9F5E1" stroke="#3F7D20" stroke-width="1.4"/>
+<text x="530.8" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Lógica de negocio / modelo</text>
+<rect x="728.4" y="1070" width="18" height="14" rx="3" fill="#FFF1DB" stroke="#B26A00" stroke-width="1.4"/>
+<text x="752.4" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Servicio de IA externo</text>
+<rect x="923.5999999999999" y="1070" width="18" height="14" rx="3" fill="#F2F2F2" stroke="#5A5A5A" stroke-width="1.4"/>
+<text x="947.5999999999999" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Controla la ejecución</text>
+<rect x="1112.1999999999998" y="1070" width="18" height="14" rx="3" fill="#FBE3E3" stroke="#A33A3A" stroke-width="1.4"/>
+<text x="1136.1999999999998" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Datos rechazados</text>
+<rect x="1267.7999999999997" y="1070" width="18" height="14" rx="3" fill="#FDE9E7" stroke="#B3361F" stroke-width="1.4"/>
+<text x="1291.7999999999997" y="1081.5" font-size="11.5" font-weight="normal" fill="#222" text-anchor="start" >Consume los resultados</text>
+<text x="40" y="1110" font-size="11.5" font-weight="normal" fill="#444" text-anchor="start" >Todo el sistema es batch: prepare y train diarios o bajo demanda; forecast en micro-batch horario/diario. No hace falta streaming porque la decisión (reequilibrar o hacer mantenimiento) se planifica por horas.</text>
+</svg>

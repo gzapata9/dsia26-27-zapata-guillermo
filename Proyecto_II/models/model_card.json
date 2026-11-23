@@ -1,0 +1,58 @@
+{
+  "model": "HistGradientBoostingRegressor",
+  "task": "regresión de alquileres por hora (cnt)",
+  "features": [
+    "system_year",
+    "season",
+    "mnth",
+    "hr",
+    "holiday",
+    "weekday",
+    "workingday",
+    "weathersit",
+    "temp_c",
+    "feels_like_c",
+    "humidity_pct",
+    "wind_kmh"
+  ],
+  "target": "cnt",
+  "trained_at": "2026-11-23T18:39:25+00:00",
+  "sklearn_version": "1.9.1",
+  "data_hash": "5ab27211eb8c39e6",
+  "rows_total": 17379,
+  "split": {
+    "type": "temporal",
+    "test_from": "2012-10-01",
+    "rows_train": 15211,
+    "rows_test": 2168
+  },
+  "metrics_test": {
+    "mae": 41.73,
+    "rmse": 66.0,
+    "r2": 0.8928
+  },
+  "metrics_baseline": {
+    "mae": 79.95,
+    "rmse": 119.59,
+    "r2": 0.6481
+  },
+  "permutation_importance_mae": {
+    "hr": 140.94,
+    "workingday": 30.59,
+    "temp_c": 17.61,
+    "weekday": 8.05,
+    "humidity_pct": 4.76,
+    "weathersit": 4.17,
+    "feels_like_c": 3.52,
+    "season": 3.22,
+    "mnth": 1.1,
+    "holiday": 0.86,
+    "wind_kmh": 0.54,
+    "system_year": 0.0
+  },
+  "params": {
+    "max_iter": 400,
+    "learning_rate": 0.08,
+    "random_state": 42
+  }
+}

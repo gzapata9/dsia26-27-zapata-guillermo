@@ -1,0 +1,33 @@
+name: Proyecto II · CI
+
+on:
+  push:
+    branches: [main]
+    paths: ["Proyecto_II/**", ".github/workflows/proyecto_ii_*.yml"]
+  pull_request:
+    paths: ["Proyecto_II/**", ".github/workflows/proyecto_ii_*.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Proyecto_II
+    env:
+      AI_PROVIDER: mock     # en CI nunca se llama a un proveedor real ni se necesitan secretos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: Proyecto_II/requirements.txt
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Tests + cobertura
+        run: pytest --cov=bikedemand --cov-report=term-missing --cov-fail-under=80
+      - name: Smoke del pipeline (prepare + train)
+        run: |
+          python -m bikedemand --output-dir /tmp/ci prepare
+          python -m bikedemand --output-dir /tmp/ci train
+          cat /tmp/ci/train_metrics.json | head -40

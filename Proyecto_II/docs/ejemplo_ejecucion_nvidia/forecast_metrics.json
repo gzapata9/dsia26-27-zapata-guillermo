@@ -1,0 +1,28 @@
+{
+  "job": "forecast",
+  "run_id": "4e2164d0",
+  "status": "ok",
+  "generated_at": "2026-11-23T21:03:33+00:00",
+  "city": "Washington, DC",
+  "hours": 48,
+  "total_pred": 8789,
+  "peak": {
+    "timestamp": "24/11 08:00",
+    "pred_cnt": 613,
+    "weather": "despejado",
+    "temp_c": 5.0
+  },
+  "dependencies": {
+    "weather": "ok",
+    "holidays": "ok",
+    "ai": "ok"
+  },
+  "ai": {
+    "provider": "nvidia",
+    "text": null,
+    "model": "nvidia/nemotron-3.5-bolt-e4b",
+    "latency_ms": 2730.1
+  },
+  "model_trained_at": "2026-11-23T18:39:25+00:00",
+  "prompt_version": "briefing-v1"
+}
